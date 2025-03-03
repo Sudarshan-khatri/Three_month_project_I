@@ -1,4 +1,6 @@
 #This program to use to enter the book list in file ,update the books and delete the book in the system.
+import random
+import json
 
 
 def book_id():
@@ -52,9 +54,9 @@ class delete_book(add_book):
             if found:
                 with open("book_data.json","w") as file2:
                     json.dump(data,file2,indent=2)
-                print(f"Book id {b_id} deleted sucessfully !!!")
+                print(f"Book id {self.b_id} deleted sucessfully !!!")
             else:
-                print(f"Book id {b_id} not found !!!!")
+                print(f"Book id {self.b_id} not found !!!!")
 
         except FileExistsError:
             print("Data not found !!!!!!")

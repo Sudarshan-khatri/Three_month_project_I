@@ -1,9 +1,8 @@
 """This  program  help to view the list of  book in library and search the book and purchase the book from 
 library .student.py file help to  show the student protion"""
 
-import json
-import main
-from book import add_book
+from md import *
+
 class student_profile:
     def __init__(self,s_id,user_name,grade,faculty,section):
         self.s_id=s_id
@@ -26,7 +25,6 @@ class student_profile:
         #store the data in json file:
             with open("student_data.json","a") as s_file1:
                 json.dump(s_data,s_file1)
-                s_file1("\n")
 
         except FileExistsError:
             print("File not found !!!!")
@@ -84,7 +82,24 @@ class view_book(student_profile,add_book):
                             
                 except FileNotFoundError:
                     print("Sorry file not find !!!!")
-            
+
+
+
+
+if __name__=="__main__":
+    print("\n\n\t\t\tWELCOME TO STUDENT PORTAL")
+    print("\t\t\t1:register student".upper())
+    print("\t\t\t2:student library".upper())
+    option=int(input("Choose the option:"))
+    if(option==1):
+    # Data of student taken for registeration:
+        std_name=input("Enter student name:")
+        std_grade=int(input("Enter the grade:"))
+        std_faculty=input("Enter the faculty:")
+        std_sec=input("Enter the section:")
+        #create an instance of class student_profile
+        std_obj1=student_profile(book_id(),std_name,std_grade,std_faculty,std_sec)
+        std_obj1.student_details()
                     
 
             

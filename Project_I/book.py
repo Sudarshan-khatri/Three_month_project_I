@@ -1,5 +1,5 @@
 #This program to use to enter the book list in file ,update the books and delete the book in the system.
-from md import *
+from Project_I.mod import*
 
 def book_id():
     id_list=[1,2,3,4,5,6,7,8,9,0]
@@ -25,20 +25,23 @@ class add_book:
                 "version":self.version
             }
 
-            # open file in read mode if not data in file then add the data using append
             try:
-                with open("book_data.json","r") as file1:
-                    book_list=json.load(file1)
-            except FileNotFoundError:
-                print("fuck")
                 #initialize the new list of the book:
                 book_list=[]
+            
                 #append the list of book
                 book_list.append(data)
-                with open("book_data.json","a")as file1:
+            
+                with open("book_data.json","w")as file1:
                     json.dump(book_list,file1)
                 print("Book_data stored in json file")
-                
+            except FileExistsError:
+                # open file in read mode if not data in file then add the data using append
+        
+                with open("book_data.json","r") as file1:
+                    book_list=json.load(file1)
+                print(book_list)
+                    
         except FileNotFoundError:
             print("Data not stored in file")
 

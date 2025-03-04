@@ -1,7 +1,7 @@
 """This  program  help to view the list of  book in library and search the book and purchase the book from 
 library .student.py file help to  show the student protion"""
 
-from md import *
+from Project_I.mod import*
 
 class student_profile:
     def __init__(self,s_id,user_name,grade,faculty,section):
@@ -25,6 +25,8 @@ class student_profile:
         #store the data in json file:
             with open("student_data.json","a") as s_file1:
                 json.dump(s_data,s_file1)
+                print("\n")
+            print("Data stored sucessfully !!!")
 
         except FileExistsError:
             print("File not found !!!!")

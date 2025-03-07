@@ -6,10 +6,7 @@ oop in python .The project tittle is "Personal Library management system" .It ha
 #Updates the Books
 # Delete the books"""
 
-from colorama import Fore 
-import datetime
-from book import *
-from student import *
+from colorama import*
 
 def main():
     try:
